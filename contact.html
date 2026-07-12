@@ -5,8 +5,287 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AfriConnect Summit</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
   </head>
   <body>
+    <header class="site-header">
+      <nav class="navbar" id="navbar" aria-label="Navigation principale">
+        <a href="index.html" class="navbar__brand" aria-label="AfriConnect Summit 2026 - Accueil">
+          <img src="images/logo.png" alt="Logo AfriConnect Summit" class="navbar__logo" />
+          <span>AfriConnect<br />Summit 2026</span>
+        </a>
+        <ul class="navbar__links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="programme.html">Programme</a></li>
+          <li><a href="intervenants.html">Intervenants</a></li>
+          <li><a href="contact.html" aria-current="page">Inscription</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button id="btn-theme" class="icon-btn" aria-label="Basculer le mode sombre">
+            <span id="theme-icon" aria-hidden="true">🌙</span>
+          </button>
+          <button id="btn-menu" class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-banner" aria-labelledby="contact-titre">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <ol>
+            <li><a href="index.html">Accueil</a></li>
+            <li aria-current="page">Inscription & Contact</li>
+          </ol>
+        </nav>
+        <h1 id="contact-titre">Prenez votre badge</h1>
+        <p>Rejoignez l'événement tech le plus attendu d'Afrique francophone.</p>
+      </section>
+
+      <section class="registration" aria-labelledby="form-titre">
+        <div class="registration__grid">
+          <aside class="registration__infos" aria-labelledby="infos-titre">
+            <h2 id="infos-titre">Informations pratiques</h2>
+            <address>
+              <p>
+                <i class="bi bi-geo-alt" aria-hidden="true"></i> <strong>Lieu :</strong> Centre de Conférences de Dakar, Avenue Cheikh Anta
+                Diop, Dakar, Sénégal
+              </p>
+              <p><i class="bi bi-calendar3" aria-hidden="true"></i> <strong>Dates :</strong> 15 – 17 Octobre 2026</p>
+              <p>
+                <i class="bi bi-envelope" aria-hidden="true"></i> <strong>Email :</strong>
+                <a href="mailto:contact@africonnectsummit.com">contact@africonnectsummit.com</a>
+              </p>
+              <p>
+                <i class="bi bi-telephone" aria-hidden="true"></i> <strong>Téléphone :</strong>
+                <a href="tel:+221001234567">+221 00 123 45 67</a>
+              </p>
+              <p><i class="bi bi-clock" aria-hidden="true"></i> <strong>Horaires :</strong> Lun – Ven, 8h – 18h (GMT)</p>
+            </address>
+
+            <div class="registration__map">
+              <iframe
+                src="https://www.google.com/maps?q=Dakar,Senegal&output=embed"
+                width="100%"
+                height="250"
+                allowfullscreen=""
+                loading="lazy"
+                title="Localisation du Centre de Conférences de Dakar"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </aside>
+
+          <div class="registration__form">
+            <h2 id="form-titre">Formulaire d'inscription</h2>
+
+            <form id="form-inscription" novalidate>
+              <div class="field">
+                <label for="nom">Nom complet *</label>
+                <input
+                  type="text"
+                  id="nom"
+                  name="nom"
+                  placeholder="Votre nom complet"
+                  required
+                  aria-required="true"
+                  aria-describedby="nom-erreur"
+                />
+                <span id="nom-erreur" class="erreur-msg" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="field">
+                <label for="email">Adresse email *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="votre@email.com"
+                  required
+                  aria-required="true"
+                  aria-describedby="email-erreur"
+                />
+                <span id="email-erreur" class="erreur-msg" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="field">
+                <label for="telephone">Téléphone * (minimum 8 chiffres)</label>
+                <input
+                  type="tel"
+                  id="telephone"
+                  name="telephone"
+                  placeholder="+221 00 000 00 00"
+                  required
+                  aria-required="true"
+                  aria-describedby="telephone-erreur"
+                />
+                <span id="telephone-erreur" class="erreur-msg" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="field">
+                <label for="participation">Type de participation *</label>
+                <select id="participation" name="participation" required aria-required="true" aria-describedby="participation-erreur">
+                  <option value="">-- Choisissez votre profil --</option>
+                  <option value="developpeur">Développeur</option>
+                  <option value="entrepreneur">Entrepreneur</option>
+                  <option value="investisseur">Investisseur</option>
+                  <option value="etudiant">Étudiant</option>
+                  <option value="designer">Designer</option>
+                  <option value="manager">Manager / Chef de projet</option>
+                  <option value="autre">Autre</option>
+                </select>
+                <span id="participation-erreur" class="erreur-msg" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="field">
+                <label for="pays">Pays *</label>
+                <select id="pays" name="pays" required aria-required="true" aria-describedby="pays-erreur">
+                  <option value="">-- Choisissez votre pays --</option>
+                  <option value="senegal">Sénégal</option>
+                  <option value="cote-ivoire">Côte d'Ivoire</option>
+                  <option value="mali">Mali</option>
+                  <option value="ghana">Ghana</option>
+                  <option value="nigeria">Nigeria</option>
+                  <option value="cameroun">Cameroun</option>
+                  <option value="maroc">Maroc</option>
+                  <option value="tunisie">Tunisie</option>
+                  <option value="kenya">Kenya</option>
+                  <option value="ethiopie">Éthiopie</option>
+                  <option value="burkina-faso">Burkina Faso</option>
+                  <option value="autre">Autre</option>
+                </select>
+                <span id="pays-erreur" class="erreur-msg" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="field">
+                <label for="message">Message / Motivation * (minimum 20 caractères)</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Pourquoi souhaitez-vous participer à AfriConnect Summit ?"
+                  required
+                  aria-required="true"
+                  aria-describedby="message-erreur"
+                  minlength="20"
+                ></textarea>
+                <span id="message-erreur" class="erreur-msg" role="alert" aria-live="polite"></span>
+              </div>
+
+              <button type="submit" class="btn btn--fill"><i class="bi bi-send" aria-hidden="true"></i> Envoyer mon inscription</button>
+
+              <div id="success-msg" class="success-box" role="alert" aria-live="polite" hidden>
+                <i class="bi bi-check-circle" aria-hidden="true"></i>
+                Votre inscription a bien été reçue ! Nous vous contacterons très prochainement.
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq" aria-labelledby="faq-titre">
+        <h2 id="faq-titre" class="section-title">Questions fréquentes</h2>
+
+        <div class="accordion">
+          <div class="accordion__item">
+            <input type="checkbox" id="faq-1" class="accordion__toggle" />
+            <label for="faq-1" class="accordion__label">Comment s'inscrire à AfriConnect Summit ?</label>
+            <div class="accordion__content">
+              <p>
+                Remplissez le formulaire ci-dessus avec vos informations complètes. Une confirmation vous sera envoyée par email dans les 48
+                heures suivant votre inscription.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <input type="checkbox" id="faq-2" class="accordion__toggle" />
+            <label for="faq-2" class="accordion__label">Quel est le tarif d'inscription ?</label>
+            <div class="accordion__content">
+              <p>
+                L'inscription standard est de 75 000 FCFA. Un tarif étudiant à 35 000 FCFA est disponible sur présentation d'une carte
+                étudiante valide. Les places sont limitées à 1 200 participants.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <input type="checkbox" id="faq-3" class="accordion__toggle" />
+            <label for="faq-3" class="accordion__label">Y a-t-il un hébergement disponible ?</label>
+            <div class="accordion__content">
+              <p>
+                AfriConnect Summit a négocié des tarifs préférentiels avec plusieurs hôtels partenaires à Dakar. Les détails seront
+                communiqués après confirmation de votre inscription.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <input type="checkbox" id="faq-4" class="accordion__toggle" />
+            <label for="faq-4" class="accordion__label">Les sessions seront-elles enregistrées ?</label>
+            <div class="accordion__content">
+              <p>
+                Oui, toutes les sessions plénières seront enregistrées et mises à disposition des participants inscrits pendant 30 jours
+                après l'événement.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <input type="checkbox" id="faq-5" class="accordion__toggle" />
+            <label for="faq-5" class="accordion__label">Comment annuler son inscription ?</label>
+            <div class="accordion__content">
+              <p>
+                Les annulations sont acceptées jusqu'à 30 jours avant l'événement avec remboursement intégral. Au-delà, un avoir valable
+                pour l'édition suivante sera proposé.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div class="site-footer__col">
+          <h3>AfriConnect Summit</h3>
+          <p>Le plus grand sommet tech panafricain.</p>
+          <nav class="social-links" aria-label="Réseaux sociaux">
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+          </nav>
+        </div>
+        <div class="site-footer__col">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="programme.html">Programme</a></li>
+            <li><a href="intervenants.html">Intervenants</a></li>
+            <li><a href="contact.html">Inscription</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>Contact</h3>
+          <address>
+            <p><i class="bi bi-geo-alt" aria-hidden="true"></i> Centre de Conférences de Dakar, Sénégal</p>
+            <p>
+              <i class="bi bi-envelope" aria-hidden="true"></i>
+              <a href="mailto:contact@africonnectsummit.com">contact@africonnectsummit.com</a>
+            </p>
+            <p><i class="bi bi-telephone" aria-hidden="true"></i> <a href="tel:+221001234567">+221 00 123 45 67</a></p>
+          </address>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="annee-footer"></span> AfriConnect Summit. Tous droits réservés.</p>
+        <button id="btn-top" class="back-to-top" aria-label="Retourner en haut de la page">
+          <i class="bi bi-arrow-up" aria-hidden="true"></i>
+        </button>
+      </div>
+    </footer>
     <script src="js/main.js"></script>
   </body>
 </html>

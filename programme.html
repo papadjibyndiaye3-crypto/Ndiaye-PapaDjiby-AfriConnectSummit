@@ -5,8 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AfriConnect Summit</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
   </head>
   <body>
+    <body>
+    <header class="site-header">
+      <nav class="navbar" id="navbar" aria-label="Navigation principale">
+        <a href="index.html" class="navbar__brand" aria-label="AfriConnect Summit 2026 - Accueil">
+          <img src="images/logo.png" alt="Logo AfriConnect Summit" class="navbar__logo" />
+          <span>AfriConnect<br />Summit 2026</span>
+        </a>
+        <ul class="navbar__links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="programme.html" aria-current="page">Programme</a></li>
+          <li><a href="intervenants.html">Intervenants</a></li>
+          <li><a href="contact.html">Inscription</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button id="btn-theme" class="icon-btn" aria-label="Basculer le mode sombre">
+           <span id="theme-icon" aria-hidden="true">🌙</span>
+          </button>
+          <button id="btn-menu" class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-banner" aria-labelledby="programme-titre">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <ol>
+            <li><a href="index.html">Accueil</a></li>
+            <li aria-current="page">Programme</li>
+          </ol>
+        </nav>
+        <h1 id="programme-titre">Le programme, jour par jour</h1>
+        <p>Trois journées denses entre conférences plénières, ateliers pratiques et temps de networking.</p>
+      </section>
+
+      <section class="agenda" aria-labelledby="agenda-titre">
+        <h2 id="agenda-titre" class="sr-only">Planning des 3 jours</h2>
+
+        <div class="agenda__tabs" role="tablist" aria-label="Jours de la conférence">
+          <button role="tab" class="tab tab--actif" data-jour="1" aria-selected="true" aria-controls="jour-1">
+            <span class="tab__num">01</span> Jour 1 · 15 Oct
+          </button>
+          <button role="tab" class="tab" data-jour="2" aria-selected="false" aria-controls="jour-2">
+            <span class="tab__num">02</span> Jour 2 · 16 Oct
+          </button>
+          <button role="tab" class="tab" data-jour="3" aria-selected="false" aria-controls="jour-3">
+            <span class="tab__num">03</span> Jour 3 · 17 Oct
+          </button>
+        </div>
+
+        <div id="jour-1" role="tabpanel" class="agenda__panel agenda__panel--actif" aria-labelledby="onglet-1">
+          <table aria-label="Planning du jour 1">
+            <thead>
+              <tr><th scope="col">Heure</th><th scope="col">Session</th><th scope="col">Intervenant</th><th scope="col">Salle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>08h00</td><td>Accueil et enregistrement</td><td>Équipe AfriConnect</td><td>Hall principal</td></tr>
+              <tr><td>09h00</td><td>Discours d'ouverture : L'Afrique tech en 2026</td><td>Aminata Diallo</td><td>Grande salle</td></tr>
+              <tr><td>10h30</td><td>IA générative : opportunités pour l'Afrique</td><td>Chidi Okonkwo</td><td>Salle A</td></tr>
+              <tr><td>13h00</td><td>Pause déjeuner & Networking</td><td>—</td><td>Terrasse</td></tr>
+              <tr><td>14h30</td><td>Fintech africaine : révolution des paiements</td><td>Kwame Asante</td><td>Salle B</td></tr>
+              <tr><td>16h00</td><td>Design centré utilisateur en contexte africain</td><td>Leila Ouedraogo</td><td>Salle C</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="jour-2" role="tabpanel" class="agenda__panel" aria-labelledby="onglet-2">
+          <table aria-label="Planning du jour 2">
+            <thead>
+              <tr><th scope="col">Heure</th><th scope="col">Session</th><th scope="col">Intervenant</th><th scope="col">Salle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>09h00</td><td>Data Science pour le développement durable</td><td>Ngozi Adeyemi</td><td>Grande salle</td></tr>
+              <tr><td>10h30</td><td>Cybersécurité : protéger l'Afrique numérique</td><td>Moussa Konaté</td><td>Salle A</td></tr>
+              <tr><td>12h00</td><td>Atelier : créer sa startup en 48h</td><td>Kwame Asante</td><td>Salle D</td></tr>
+              <tr><td>13h30</td><td>Pause déjeuner & Networking</td><td>—</td><td>Terrasse</td></tr>
+              <tr><td>15h00</td><td>Cloud computing : les solutions adaptées à l'Afrique</td><td>Aminata Diallo</td><td>Salle B</td></tr>
+              <tr><td>17h00</td><td>Table ronde : femmes dans la tech africaine</td><td>Leila Ouedraogo</td><td>Grande salle</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="jour-3" role="tabpanel" class="agenda__panel" aria-labelledby="onglet-3">
+          <table aria-label="Planning du jour 3">
+            <thead>
+              <tr><th scope="col">Heure</th><th scope="col">Session</th><th scope="col">Intervenant</th><th scope="col">Salle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>09h00</td><td>Blockchain et décentralisation en Afrique</td><td>Chidi Okonkwo</td><td>Grande salle</td></tr>
+              <tr><td>10h30</td><td>E-commerce : conquérir le marché africain</td><td>Kofi Mensah</td><td>Salle A</td></tr>
+              <tr><td>12h00</td><td>Pitch de startups africaines</td><td>Panel d'investisseurs</td><td>Grande salle</td></tr>
+              <tr><td>13h30</td><td>Pause déjeuner & Networking final</td><td>—</td><td>Terrasse</td></tr>
+              <tr><td>15h00</td><td>Atelier : développement mobile pour l'Afrique</td><td>Moussa Konaté</td><td>Salle B</td></tr>
+              <tr><td>17h00</td><td>Cérémonie de clôture et remise des prix</td><td>Aminata Diallo</td><td>Grande salle</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="themes" aria-labelledby="themes-titre">
+        <h2 id="themes-titre" class="section-title">Quatre grandes thématiques</h2>
+        <div class="themes__grid">
+          <article class="theme-card">
+            <i class="bi bi-cpu" aria-hidden="true"></i>
+            <h3>IA & Tech</h3>
+            <p>Intelligence artificielle, machine learning et innovations technologiques pour le continent.</p>
+          </article>
+          <article class="theme-card">
+            <i class="bi bi-briefcase" aria-hidden="true"></i>
+            <h3>Business</h3>
+            <p>Entrepreneuriat, financement, stratégies de croissance et opportunités d'investissement.</p>
+          </article>
+          <article class="theme-card">
+            <i class="bi bi-palette" aria-hidden="true"></i>
+            <h3>Design</h3>
+            <p>UX/UI et création d'expériences digitales adaptées au contexte africain.</p>
+          </article>
+          <article class="theme-card">
+            <i class="bi bi-bar-chart-line" aria-hidden="true"></i>
+            <h3>Data</h3>
+            <p>Data science, analytics et prise de décision basée sur les données.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div class="site-footer__col">
+          <h3>AfriConnect Summit</h3>
+          <p>Le plus grand sommet tech panafricain.</p>
+          <nav class="social-links" aria-label="Réseaux sociaux">
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+          </nav>
+        </div>
+        <div class="site-footer__col">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="programme.html">Programme</a></li>
+            <li><a href="intervenants.html">Intervenants</a></li>
+            <li><a href="contact.html">Inscription</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>Contact</h3>
+          <address>
+            <p><i class="bi bi-geo-alt" aria-hidden="true"></i> Centre de Conférences de Dakar, Sénégal</p>
+            <p><i class="bi bi-envelope" aria-hidden="true"></i> <a href="mailto:contact@africonnectsummit.com">contact@africonnectsummit.com</a></p>
+            <p><i class="bi bi-telephone" aria-hidden="true"></i> <a href="tel:+221001234567">+221 00 123 45 67</a></p>
+          </address>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="annee-footer"></span> AfriConnect Summit. Tous droits réservés.</p>
+        <button id="btn-top" class="back-to-top" aria-label="Retourner en haut de la page">
+          <i class="bi bi-arrow-up" aria-hidden="true"></i>
+        </button>
+      </div>
+    </footer>
     <script src="js/main.js"></script>
   </body>
 </html>

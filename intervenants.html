@@ -5,8 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AfriConnect Summit</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
   </head>
   <body>
+     <header class="site-header">
+      <nav class="navbar" id="navbar" aria-label="Navigation principale">
+        <a href="index.html" class="navbar__brand" aria-label="AfriConnect Summit 2026 - Accueil">
+          <img src="images/logo.png" alt="Logo AfriConnect Summit" class="navbar__logo" />
+          <span>AfriConnect<br />Summit 2026</span>
+        </a>
+        <ul class="navbar__links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="programme.html">Programme</a></li>
+          <li><a href="intervenants.html" aria-current="page">Intervenants</a></li>
+          <li><a href="contact.html">Inscription</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button id="btn-theme" class="icon-btn" aria-label="Basculer le mode sombre">
+            <i class="bi bi-moon-stars-fill" aria-hidden="true"></i>
+          </button>
+          <button id="btn-theme" class="icon-btn" aria-label="Basculer le mode sombre">
+            <span id="theme-icon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-banner" aria-labelledby="intervenants-titre">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <ol>
+            <li><a href="index.html">Accueil</a></li>
+            <li aria-current="page">Intervenants</li>
+          </ol>
+        </nav>
+        <h1 id="intervenants-titre">Ceux qui font l'agenda</h1>
+        <p>Neuf experts reconnus, venus de tout le continent, pour partager leur vision.</p>
+      </section>
+
+      <section class="speaker-filters" aria-label="Filtrer les intervenants par thématique">
+        <button class="filter-chip filter-chip--actif" data-filtre="tous">Tous</button>
+        <button class="filter-chip" data-filtre="ia-tech">IA & Tech</button>
+        <button class="filter-chip" data-filtre="business">Business</button>
+        <button class="filter-chip" data-filtre="design">Design</button>
+        <button class="filter-chip" data-filtre="data">Data</button>
+      </section>
+
+      <section class="speaker-grid" aria-labelledby="grille-titre">
+        <h2 id="grille-titre" class="sr-only">Liste des intervenants</h2>
+
+        <article class="speaker-card" data-categorie="ia-tech">
+          <img src="images/intervenant-1.jpg" alt="Photo d'Aminata Diallo, experte en Intelligence Artificielle" />
+          <div class="speaker-card__body">
+            <h3>Aminata Diallo</h3>
+            <p>Experte en Intelligence Artificielle</p>
+            <p class="speaker-card__pays"><i class="bi bi-geo-alt" aria-hidden="true"></i> Sénégal</p>
+          </div>
+        </article>
+
+        <article class="speaker-card" data-categorie="business">
+          <img src="images/intervenant-2.jpg" alt="Photo de Papa Omar Sow, entrepreneur et investisseur tech" />
+          <div class="speaker-card__body">
+            <h3>Papa Omar Sow</h3>
+            <p>Entrepreneur & Investisseur Tech</p>
+            <p class="speaker-card__pays"><i class="bi bi-geo-alt" aria-hidden="true"></i> Sénégal</p>
+          </div>
+        </article>
+
+        <article class="speaker-card" data-categorie="design">
+          <img src="images/intervenant-3.jpg" alt="Photo de Soda Diop, designer UX" />
+          <div class="speaker-card__body">
+            <h3>Soda Diop</h3>
+            <p>Designer UX & Product Lead</p>
+            <p class="speaker-card__pays"><i class="bi bi-geo-alt" aria-hidden="true"></i> Sénégal</p>
+          </div>
+        </article>
+
+        <article class="speaker-card" data-categorie="data">
+          <img src="images/intervenant-4.jpg" alt="Photo de Chidi Okonkwo, expert en Data Science" />
+          <div class="speaker-card__body">
+            <h3>Chidi Okonkwo</h3>
+            <p>Data Scientist & Conférencier</p>
+            <p class="speaker-card__pays"><i class="bi bi-geo-alt" aria-hidden="true"></i> Nigeria</p>
+          </div>
+        </article>
+
+        <article class="speaker-card" data-categorie="data">
+          <img src="images/intervenant-5.jpg" alt="Photo de Ngozi Adeyemi, data analyst" />
+          <div class="speaker-card__body">
+            <h3>Ngozi Adeyemi</h3>
+            <p>Data Analyst & Consultante</p>
+            <p class="speaker-card__pays"><i class="bi bi-geo-alt" aria-hidden="true"></i> Nigeria</p>
+          </div>
+        </article>
+
+        <article class="speaker-card" data-categorie="ia-tech">
+          <img src="images/intervenant-6.jpg" alt="Photo de Moussa Konaté, expert en cybersécurité" />
+          <div class="speaker-card__body">
+            <h3>Moussa Konaté</h3>
+            <p>Expert Cybersécurité</p>
+            <p class="speaker-card__pays"><i class="bi bi-geo-alt" aria-hidden="true"></i> Côte d'Ivoire</p>
+          </div>
+        </article>
+
+        <article class="speaker-card" data-categorie="business">
+          <img src="images/intervenant-7.jpg" alt="Photo de Kofi Mensah, spécialiste e-commerce" />
+          <div class="speaker-card__body">
+            <h3>Kofi Mensah</h3>
+            <p>Spécialiste E-commerce Afrique</p>
+            <p class="speaker-card__pays"><i class="bi bi-geo-alt" aria-hidden="true"></i> Ghana</p>
+          </div>
+        </article>
+
+        <article class="speaker-card" data-categorie="design">
+          <img src="images/intervenant-8.jpg" alt="Photo de Leila Ouedraogo, product designer" />
+          <div class="speaker-card__body">
+            <h3>Leila Ouedraogo</h3>
+            <p>Product Designer & UX Researcher</p>
+            <p class="speaker-card__pays"><i class="bi bi-geo-alt" aria-hidden="true"></i> Burkina Faso</p>
+          </div>
+        </article>
+
+        <article class="speaker-card" data-categorie="ia-tech">
+          <img src="images/intervenant-9.jpg" alt="Photo de Tariq El Mansouri, développeur mobile et IoT" />
+          <div class="speaker-card__body">
+            <h3>Tariq El Mansouri</h3>
+            <p>Développeur Mobile & IoT</p>
+            <p class="speaker-card__pays"><i class="bi bi-geo-alt" aria-hidden="true"></i> Tunisie</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div class="site-footer__col">
+          <h3>AfriConnect Summit</h3>
+          <p>Le plus grand sommet tech panafricain.</p>
+          <nav class="social-links" aria-label="Réseaux sociaux">
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+          </nav>
+        </div>
+        <div class="site-footer__col">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="programme.html">Programme</a></li>
+            <li><a href="intervenants.html">Intervenants</a></li>
+            <li><a href="contact.html">Inscription</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>Contact</h3>
+          <address>
+            <p><i class="bi bi-geo-alt" aria-hidden="true"></i> Centre de Conférences de Dakar, Sénégal</p>
+            <p><i class="bi bi-envelope" aria-hidden="true"></i> <a href="mailto:contact@africonnectsummit.com">contact@africonnectsummit.com</a></p>
+            <p><i class="bi bi-telephone" aria-hidden="true"></i> <a href="tel:+221001234567">+221 00 123 45 67</a></p>
+          </address>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="annee-footer"></span> AfriConnect Summit. Tous droits réservés.</p>
+        <button id="btn-top" class="back-to-top" aria-label="Retourner en haut de la page">
+          <i class="bi bi-arrow-up" aria-hidden="true"></i>
+        </button>
+      </div>
+    </footer
     <script src="js/main.js"></script>
   </body>
 </html>
