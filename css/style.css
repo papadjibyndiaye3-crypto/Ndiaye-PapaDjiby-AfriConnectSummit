@@ -1,0 +1,157 @@
+/*  1. VARIABLES CSS */
+:root {
+  --clr-ink: #120e1f;
+  --clr-paper: #f4f1ff;
+  --clr-magenta: #d6336c;
+  --clr-teal: #0f9b8e;
+  --clr-gold: #e8b33d;
+
+  --fond-page: var(--clr-paper);
+  --fond-carte: #ffffff;
+  --fond-alterne: #eae4fa;
+  --texte-principal: #1c1730;
+  --texte-secondaire: #5f5876;
+  --bordure: #ddd5f2;
+
+  --police-titre: "Fraunces", serif;
+  --police-texte: "Manrope", sans-serif;
+
+  --esp-xs: 0.5rem;
+  --esp-sm: 1rem;
+  --esp-md: 2rem;
+  --esp-lg: 4rem;
+  --esp-xl: 6rem;
+
+  --radius: 16px;
+  --ombre: 0 12px 32px rgba(18, 14, 31, 0.1);
+  --ombre-forte: 0 22px 48px rgba(18, 14, 31, 0.18);
+  --halo-magenta: 0 0 0 4px rgba(214, 51, 108, 0.15), 0 20px 40px rgba(214, 51, 108, 0.25);
+  --transition: 0.25s ease;
+}
+
+[data-theme="dark"] {
+  --fond-page: var(--clr-ink);
+  --fond-carte: #1b1530;
+  --fond-alterne: #221b3a;
+  --texte-principal: #f4f1ff;
+  --texte-secondaire: #b3abcf;
+  --bordure: #332b52;
+  --ombre: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --ombre-forte: 0 22px 48px rgba(0, 0, 0, 0.55);
+}
+
+/* 2. RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--police-texte);
+  background-color: var(--fond-page);
+  color: var(--texte-principal);
+  line-height: 1.6;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  line-height: 1.15;
+}
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+}
+h2.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin-bottom: var(--esp-md);
+}
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--esp-xs);
+}
+p {
+  color: var(--texte-secondaire);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+button {
+  font-family: var(--police-texte);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+section {
+  padding: var(--esp-xl) var(--esp-md);
+}
+.section-title {
+  text-align: center;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+label:focus-visible {
+  outline: 3px solid var(--clr-gold);
+  outline-offset: 2px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 100px;
+  font-weight: 700;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background-color var(--transition);
+}
+.btn--fill {
+  background-color: var(--clr-magenta);
+  color: #fff;
+}
+.btn--outline {
+  border: 2px solid var(--bordure);
+  color: var(--texte-principal);
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ombre);
+}
+.btn--fill:hover {
+  background-color: var(--clr-teal);
+}
