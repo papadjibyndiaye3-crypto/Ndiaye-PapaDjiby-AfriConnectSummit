@@ -145,8 +145,14 @@ label:focus-visible {
   color: #fff;
 }
 .btn--outline {
-  border: 2px solid var(--bordure);
-  color: var(--texte-principal);
+  background-color: #fff;
+  border: 2px solid #fff;
+  color: var(--clr-magenta);
+}
+.btn--outline:hover {
+  background-color: var(--clr-magenta);
+  border-color: var(--clr-magenta);
+  color: #fff;
 }
 .btn:hover {
   transform: translateY(-3px);
@@ -154,4 +160,1033 @@ label:focus-visible {
 }
 .btn--fill:hover {
   background-color: var(--clr-teal);
+}
+/* ------------------------------------------------------------
+   3. NAVBAR (Flexbox #1)
+   ------------------------------------------------------------ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem var(--esp-md);
+  background-color: rgba(18, 14, 31, 0.35);
+  backdrop-filter: blur(6px);
+  transition:
+    background-color var(--transition),
+    box-shadow var(--transition),
+    padding var(--transition);
+}
+
+.navbar.scrolled {
+  background-color: var(--fond-carte);
+  box-shadow: var(--ombre);
+  padding: 0.6rem var(--esp-md);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--police-titre);
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+/* Logo image (remplace l'ancien rond "AC" texte) */
+.navbar__logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.navbar__links {
+  display: flex;
+  gap: var(--esp-md);
+}
+
+.navbar__links a {
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.4rem 0;
+  border-bottom: 2px solid transparent;
+  transition:
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.navbar__links a:hover,
+.navbar__links a[aria-current="page"] {
+  color: var(--clr-magenta);
+  border-color: var(--clr-gold);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-sm);
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--fond-alterne);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform var(--transition),
+    background-color var(--transition);
+}
+.icon-btn:hover {
+  background-color: var(--clr-gold);
+  transform: rotate(15deg);
+}
+
+#theme-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 30px;
+}
+.hamburger span {
+  height: 2px;
+  background-color: var(--texte-principal);
+  border-radius: 2px;
+  transition:
+    transform var(--transition),
+    opacity var(--transition);
+}
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ------------------------------------------------------------
+   4. HERO — fond vidéo/photo + compte à rebours "chiffres nus"
+   ------------------------------------------------------------ */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-lg);
+  min-height: 100vh;
+  padding: var(--esp-lg) var(--esp-md);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: apparition 0.9s ease forwards 0.15s;
+}
+
+.hero__bg-video,
+.hero__bg-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, rgba(18, 14, 31, 0.78) 40%, rgba(18, 14, 31, 0.55) 100%);
+  z-index: -1;
+}
+
+.hero__content .hero__eyebrow {
+  color: var(--clr-gold);
+}
+.hero__content .hero__title,
+.hero__content .hero__text {
+  color: #f4f1ff;
+}
+
+@keyframes apparition {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__content {
+  flex: 1 1 480px;
+  max-width: 560px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__eyebrow {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  margin-bottom: var(--esp-sm);
+}
+
+.hero__title {
+  margin-bottom: var(--esp-sm);
+}
+.hero__text {
+  max-width: 480px;
+  margin-bottom: var(--esp-md);
+}
+.hero__cta {
+  display: flex;
+  gap: var(--esp-sm);
+  flex-wrap: wrap;
+}
+
+/* Compte à rebours — option "chiffres nus", aligné en bas du hero */
+.hero__countdown {
+  align-self: flex-end;
+  margin-bottom: 2rem;
+  margin-top: var(--esp-md);
+  position: relative;
+  z-index: 1;
+}
+
+.countdown-bare {
+  display: flex;
+  gap: 2rem;
+}
+
+.countdown-bare__item span {
+  display: block;
+  font-family: var(--police-titre);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.countdown-bare__item small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--clr-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ------------------------------------------------------------
+   5. CHIFFRES CLÉS (CSS Grid #1) — avec hover magenta
+   ------------------------------------------------------------ */
+.stats {
+  text-align: center;
+}
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--esp-md);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stats__item {
+  background-color: var(--fond-carte);
+  border-radius: var(--radius);
+  padding: var(--esp-md) var(--esp-sm);
+  border-top: 3px solid var(--clr-gold);
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+.stats__item:hover {
+  transform: translateY(-4px);
+  border-color: var(--clr-magenta);
+  box-shadow: var(--halo-magenta);
+}
+
+.compteur {
+  display: block;
+  font-family: var(--police-titre);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--clr-magenta);
+}
+
+/* ------------------------------------------------------------
+   6. POURQUOI PARTICIPER (Flexbox #3) — avec hover magenta
+   ------------------------------------------------------------ */
+.raisons__liste {
+  display: flex;
+  gap: var(--esp-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.raison {
+  flex: 1 1 280px;
+  max-width: 340px;
+  background-color: var(--fond-carte);
+  border-left: 4px solid var(--clr-teal);
+  border-top: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-radius: var(--radius);
+  padding: var(--esp-md);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+.raison:hover {
+  transform: translateY(-6px);
+  border-color: var(--clr-magenta);
+  border-left-color: var(--clr-magenta);
+  box-shadow: var(--halo-magenta);
+}
+.raison i {
+  font-size: 1.7rem;
+  color: var(--clr-magenta);
+  margin-bottom: var(--esp-xs);
+}
+
+/* ------------------------------------------------------------
+   7. INTERVENANTS VEDETTES (CSS Grid #2)
+   ------------------------------------------------------------ */
+.speakers-preview__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--esp-sm);
+  max-width: 1100px;
+  margin: 0 auto var(--esp-md);
+}
+.speakers-preview__head .section-title {
+  margin-bottom: 0;
+  text-align: left;
+}
+.speakers-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--esp-md);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------------------
+   8. CARTE INTERVENANT — avec hover magenta + zoom photo
+   ------------------------------------------------------------ */
+.speaker-card {
+  background-color: var(--fond-carte);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+.speaker-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--clr-magenta);
+  box-shadow: var(--halo-magenta);
+}
+.speaker-card.masquee {
+  display: none;
+}
+
+.speaker-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+.speaker-card:hover img {
+  transform: scale(1.06);
+}
+
+.speaker-card__body {
+  padding: var(--esp-sm);
+}
+.speaker-card__pays {
+  font-size: 0.85rem;
+}
+
+/* ------------------------------------------------------------
+   9. TÉMOIGNAGES
+   ------------------------------------------------------------ */
+.testimonials {
+  text-align: center;
+}
+
+.testimonials__wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-sm);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.testimonials__track {
+  display: flex;
+  gap: var(--esp-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  flex: 1;
+  padding: 0.5rem 0;
+}
+.testimonials__track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  background-color: var(--fond-carte);
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-align: left;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--clr-magenta);
+  box-shadow: var(--halo-magenta);
+}
+
+.testimonial-card__banner {
+  background: linear-gradient(135deg, var(--clr-magenta), var(--clr-ink));
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+.testimonial-card__banner img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+}
+
+.testimonial-card h3 {
+  padding: 1rem 1rem 0;
+}
+.testimonial-card__role {
+  padding: 0 1rem;
+  font-size: 0.85rem;
+  color: var(--clr-teal);
+  font-weight: 600;
+}
+.testimonial-card__quote {
+  padding: 0.8rem 1rem 1.2rem;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.testimonials__nav {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--fond-alterne);
+  color: var(--texte-principal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color var(--transition);
+}
+.testimonials__nav:hover {
+  background-color: var(--clr-magenta);
+  color: #fff;
+}
+
+/* ------------------------------------------------------------
+   10. SPONSORS — couleurs réelles des médailles (or/argent/bronze)
+   ------------------------------------------------------------ */
+.sponsors {
+  text-align: center;
+}
+.sponsors__tier {
+  margin-bottom: var(--esp-md);
+}
+.sponsors__row {
+  display: flex;
+  gap: var(--esp-md);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.sponsors__row span {
+  border-radius: var(--radius);
+  font-weight: 700;
+  transition: transform var(--transition);
+}
+.sponsors__row span:hover {
+  transform: translateY(-3px);
+}
+
+.sponsors__tier--or span {
+  background: linear-gradient(135deg, #ffd983, #e8b33d);
+  color: #3b2b06;
+  padding: 1.4rem 2.2rem;
+  font-size: 1.1rem;
+}
+.sponsors__tier--argent span {
+  background: linear-gradient(135deg, #ececf3, #b9b9c6);
+  color: #2c2c34;
+  padding: 1rem 1.6rem;
+  font-size: 0.95rem;
+}
+.sponsors__tier--bronze span {
+  background: linear-gradient(135deg, #d8a873, #a9673a);
+  color: #3a2312;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.85rem;
+}
+
+/* ------------------------------------------------------------
+   11. FOOTER (Flexbox #4)
+   ------------------------------------------------------------ */
+.site-footer {
+  background-color: var(--clr-ink);
+  color: #dcd6f0;
+  padding: var(--esp-lg) var(--esp-md) var(--esp-md);
+}
+.site-footer h3 {
+  color: #fff;
+}
+.site-footer p {
+  color: #b3abcf;
+}
+.site-footer__grid {
+  display: flex;
+  gap: var(--esp-lg);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto var(--esp-lg);
+}
+
+.social-links {
+  display: flex;
+  gap: var(--esp-sm);
+  margin-top: var(--esp-sm);
+}
+.social-links a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color var(--transition),
+    transform var(--transition);
+}
+.social-links a:hover {
+  background-color: var(--clr-magenta);
+  transform: translateY(-3px);
+}
+
+.site-footer__col ul li {
+  margin-bottom: 0.5rem;
+}
+.site-footer__col ul a:hover {
+  color: var(--clr-gold);
+}
+.site-footer__col address p {
+  margin-bottom: 0.5rem;
+}
+.site-footer__col address a:hover {
+  color: var(--clr-gold);
+}
+
+.site-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: var(--esp-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-to-top {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--clr-magenta);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition:
+    opacity var(--transition),
+    transform var(--transition),
+    background-color var(--transition);
+  z-index: 90;
+}
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background-color: var(--clr-teal);
+}
+
+/* ------------------------------------------------------------
+   12. BANNIÈRE INTERNE + FIL D'ARIANE (bug numérotation corrigé)
+   ------------------------------------------------------------ */
+.page-banner {
+  background: linear-gradient(150deg, var(--fond-alterne), var(--fond-page));
+  text-align: center;
+  padding: var(--esp-lg) var(--esp-md);
+}
+
+.breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--texte-secondaire);
+  margin-bottom: var(--esp-sm);
+}
+.breadcrumb ol li:not(:last-child)::after {
+  content: "→";
+  margin-left: 0.4rem;
+}
+.breadcrumb a:hover {
+  color: var(--clr-magenta);
+}
+.page-banner h1 {
+  margin-bottom: var(--esp-xs);
+}
+
+/* ------------------------------------------------------------
+   13. PROGRAMME — Onglets, tableaux, thématiques (hover magenta)
+   ------------------------------------------------------------ */
+.agenda__tabs {
+  display: flex;
+  gap: var(--esp-sm);
+  justify-content: center;
+  margin-bottom: var(--esp-md);
+  flex-wrap: wrap;
+}
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 100px;
+  background-color: var(--fond-alterne);
+  font-weight: 600;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+.tab__num {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  opacity: 0.6;
+}
+.tab--actif {
+  background-color: var(--clr-magenta);
+  color: #fff;
+}
+.tab--actif .tab__num {
+  opacity: 1;
+}
+
+.agenda__panel {
+  display: none;
+  max-width: 950px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+.agenda__panel--actif {
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--fond-carte);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--ombre);
+}
+thead {
+  background-color: var(--clr-ink);
+}
+thead th {
+  color: #fff;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  font-family: var(--police-titre);
+  font-size: 0.9rem;
+}
+tbody td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--bordure);
+  font-size: 0.9rem;
+}
+tbody tr:nth-child(even) {
+  background-color: var(--fond-alterne);
+}
+tbody tr:hover {
+  background-color: var(--clr-gold);
+  color: var(--clr-ink);
+}
+
+.themes__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--esp-md);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.theme-card {
+  background-color: var(--fond-carte);
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  padding: var(--esp-md);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+.theme-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--clr-magenta);
+  box-shadow: var(--halo-magenta);
+}
+.theme-card i {
+  font-size: 1.6rem;
+  color: var(--clr-teal);
+  margin-bottom: var(--esp-xs);
+}
+
+/* ------------------------------------------------------------
+   14. INTERVENANTS — Filtres & grille (CSS Grid #3)
+   ------------------------------------------------------------ */
+.speaker-filters {
+  display: flex;
+  gap: var(--esp-xs);
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: var(--esp-md);
+}
+.filter-chip {
+  padding: 0.6rem 1.3rem;
+  border-radius: 100px;
+  border: 1px solid var(--bordure);
+  background-color: var(--fond-carte);
+  color: var(--texte-principal);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+.filter-chip--actif,
+.filter-chip:hover {
+  background-color: var(--clr-magenta);
+  color: #fff;
+  border-color: var(--clr-magenta);
+}
+
+.speaker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--esp-md);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 0;
+}
+
+/* ------------------------------------------------------------
+   15. CONTACT — Formulaire + infos (Flexbox #5, colonnes inversées)
+   ------------------------------------------------------------ */
+.registration__grid {
+  display: flex;
+  gap: var(--esp-lg);
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.registration__infos {
+  flex: 1 1 340px;
+  background-color: var(--fond-alterne);
+  border-radius: var(--radius);
+  padding: var(--esp-md);
+}
+.registration__infos address p {
+  margin-bottom: var(--esp-xs);
+}
+.registration__infos a:hover {
+  color: var(--clr-magenta);
+}
+.registration__map iframe {
+  border: 0;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: var(--esp-sm);
+}
+.registration__form {
+  flex: 1 1 480px;
+}
+
+.field {
+  margin-bottom: var(--esp-sm);
+}
+.field label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--bordure);
+  border-radius: 10px;
+  background-color: var(--fond-carte);
+  color: var(--texte-principal);
+  font-family: var(--police-texte);
+  font-size: 0.95rem;
+  transition: border-color var(--transition);
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--clr-magenta);
+  outline: none;
+}
+.field.champ-valide input,
+.field.champ-valide select,
+.field.champ-valide textarea {
+  border-color: #2ecc71;
+}
+.field.champ-invalide input,
+.field.champ-invalide select,
+.field.champ-invalide textarea {
+  border-color: #e74c3c;
+}
+
+.erreur-msg {
+  display: block;
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  min-height: 1.1em;
+}
+.success-box {
+  margin-top: var(--esp-sm);
+  padding: var(--esp-sm);
+  border-radius: 10px;
+  background-color: rgba(46, 204, 113, 0.12);
+  color: #2ecc71;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------
+   16. FAQ — Accordéon CSS pur via :checked
+   ------------------------------------------------------------ */
+.accordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.accordion__item {
+  background-color: var(--fond-carte);
+  border: 1px solid var(--bordure);
+  border-radius: var(--radius);
+  margin-bottom: var(--esp-xs);
+  overflow: hidden;
+}
+.accordion__toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.accordion__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--esp-sm) var(--esp-md);
+  font-family: var(--police-titre);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.accordion__label::after {
+  content: "+";
+  font-size: 1.4rem;
+  color: var(--clr-magenta);
+  transition: transform var(--transition);
+}
+.accordion__content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 var(--esp-md);
+  transition:
+    max-height 0.35s ease,
+    padding var(--transition);
+}
+.accordion__content p {
+  padding-bottom: var(--esp-sm);
+}
+.accordion__toggle:checked ~ .accordion__label::after {
+  transform: rotate(45deg);
+}
+.accordion__toggle:checked ~ .accordion__content {
+  max-height: 300px;
+}
+
+/* ------------------------------------------------------------
+   17. ANIMATIONS AU SCROLL (IntersectionObserver)
+   ------------------------------------------------------------ */
+.au-scroll {
+  opacity: 0;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.au-scroll.fade-in {
+  transform: translateY(30px);
+}
+.au-scroll.slide-in {
+  transform: translateX(-40px);
+}
+.au-scroll.zoom-in {
+  transform: scale(0.85);
+}
+.au-scroll.visible {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* ------------------------------------------------------------
+   18. RESPONSIVE
+   ------------------------------------------------------------ */
+@media (max-width: 1200px) {
+  .stats__grid,
+  .speakers-preview__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .speaker-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero__cta {
+    justify-content: center;
+  }
+  .hero__countdown {
+    align-self: center;
+  }
+  .countdown-bare {
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .navbar__links {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--fond-carte);
+    padding: var(--esp-md);
+    gap: var(--esp-sm);
+    box-shadow: var(--ombre);
+    transform: translateY(-150%);
+    transition: transform var(--transition);
+  }
+  .navbar__links--open {
+    transform: translateY(0);
+  }
+  .hamburger {
+    display: flex;
+  }
+
+  .registration__grid {
+    flex-direction: column;
+  }
+  .themes__grid {
+    grid-template-columns: 1fr;
+  }
+  .site-footer__bottom {
+    flex-direction: column;
+    gap: var(--esp-sm);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: var(--esp-lg) var(--esp-sm);
+  }
+  .stats__grid,
+  .speakers-preview__grid,
+  .speaker-grid {
+    grid-template-columns: 1fr;
+  }
+  .countdown-bare {
+    gap: 0.8rem;
+  }
+  .countdown-bare__item span {
+    font-size: 1.5rem;
+  }
+  .agenda__tabs {
+    gap: var(--esp-xs);
+  }
+  .tab {
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
+  }
 }
